@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oFq7Ta4HUiP+CkYE4fn6ruI6bjaKUSagqQXaMay1lhvOQLBoq9AIpXgXQkxWVancAu3+8eXaL5MSD+iNyPkKOw==",
+  "success": true,
+  "projectFilePath": "C:\\Projectos Visual Studio 2019\\Eawalt_App_UI\\Eawalt_App_UI\\Eawalt_App_UI.iOS\\Eawalt_App_UI.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}

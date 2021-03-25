@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eawalt_App_UI.View.TransferPaymentView"
+             BackgroundColor="#f7f7f7">
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
+                <!-- Main Layout-->
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="10,10,0,0">
+                    
+                    <!--Label for menu information-->
+                    <Frame  Grid.Column="0" Grid.Row="0" BackgroundColor="#f7f7f7" HorizontalOptions="Start"  CornerRadius="25" HeightRequest="5" WidthRequest="20" BorderColor="#f7f7f7" HasShadow="False" Margin="-16,0,0,0">
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold" FontFamily="{StaticResource FontAwesomeSolid}" Text="" TextColor="Black"/>
+                    </Frame>
+                    <!--Imager for profile user-->
+                    <Image Grid.Row="0" Grid.Column="2" HorizontalOptions="End" Source="OvalImage" Margin="0,0,10,0" HeightRequest="60" WidthRequest="60"/>
+
+                    <!--Label Amount-->
+                    <StackLayout Grid.Column="0" Grid.Row="3" Spacing="0" Grid.ColumnSpan="3">
+                        <Label Text="Current Balance" TextColor="Black" FontSize="18" FontAttributes="None" Padding="0,15,0,0"/>
+                        <Label Text="$26,456.14" TextColor="Black" FontSize="30" FontAttributes="None" Padding="0,-5,0,0"/>
+                    </StackLayout>
+
+                    <!--Label User-->
+                    <Label Grid.Column="0" Grid.Row="5" Text="Favorities" TextColor="Black" FontSize="18" FontAttributes="None" Padding="0,15,0,0"/>
+                    <Label Grid.Column="2" Grid.Row="5" Text="All Users" TextColor="Black" FontSize="18" FontAttributes="None" Padding="0,15,0,0"/>
+
+
+                        <!-- My Friends-->
+                    <CollectionView Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" 
+                                    HorizontalScrollBarVisibility="Never" 
+                                    SelectionMode="Single"
+                                    ItemsSource="{Binding Users}"
+                                    SelectedItem="{Binding UserSeleciodado}"
+                                    SelectionChangedCommand="{Binding SelectedItemCommand}"
+                                    SelectionChangedCommandParameter="{Binding .}"
+                                    HeightRequest="180"
+                                    ItemsLayout="HorizontalList" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal" />
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                    <StackLayout Margin="8,0">
+                                        <Frame HasShadow="False" CornerRadius="20" BackgroundColor="{Binding ColorFrame}" WidthRequest="110" HeightRequest="120" HorizontalOptions="Start">
+                                            <Grid HorizontalOptions="Center" RowDefinitions="*,Auto,Auto">
+                                                <Image Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding Image}" WidthRequest="150"/>
+                                                <Label Grid.Row="1" Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="End" HorizontalTextAlignment="Center" TextColor="{Binding ColorText}" FontSize="15"/>
+                                                <Label Grid.Row="2" Text="" FontFamily="{StaticResource FontAwesomeSolid}" VerticalOptions="End" HorizontalTextAlignment="Center" TextColor="{Binding ColorText}" FontSize="25"/>
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <!--Payment Form-->
+                    <Frame Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="20" Margin="0,0,10,0">
+                        <StackLayout>
+                            <StackLayout Spacing="0">
+                                <!--<Label Text="Email"/>-->
+                                <Label Text="Name" FontSize="15" TextColor="Black"/>
+                                <Entry Text="{Binding Email}"  Placeholder="Oscar Thomsen" Margin="0,-10,0,0"/>
+                            </StackLayout>
+
+                            <StackLayout Spacing="0">
+                                <!--<Label Text="Senha"/>-->
+                                <Label Text="Amount" FontSize="15" TextColor="Black"/>
+                                <Entry Placeholder="$5000"  Margin="0,-10,0,0"/>
+                            </StackLayout>
+
+                            <!--Values Accepted-->
+                            <CollectionView  
+                                    HorizontalScrollBarVisibility="Never" 
+                                    ItemsSource="{Binding Values}"
+                                    HeightRequest="60"
+                                    Margin="-10,0,0,0"
+                                    ItemsLayout="HorizontalList" >
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout  Padding="10,0,0,0">
+                                            <Frame HasShadow="False" BackgroundColor="#f7f7f7" WidthRequest="50" HeightRequest="80">
+                                                <Grid RowDefinitions="Auto">
+                                                    <Label Grid.Row="0" Text="{Binding Value}"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontSize="15"/>
+                                                </Grid>
+                                            </Frame>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                            <StackLayout Spacing="0" Padding="0,10,0,0">
+                                <!--<Label Text="Email"/>-->
+                                <Label Text="Transfer Reason" FontSize="15" TextColor="Black"/>
+                                <Entry Text="{Binding Email}"  Placeholder="Peyment for project" Margin="0,-10,0,0"/>
+                            </StackLayout>
+                            
+                            <!--Button for payment-->
+                            <Frame BackgroundColor="#1b1b2f" CornerRadius="10" HorizontalOptions="FillAndExpand" Margin="0,10,0,0">
+                                <Label Text="Transfer Money Now" TextColor="White" FontSize="15" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

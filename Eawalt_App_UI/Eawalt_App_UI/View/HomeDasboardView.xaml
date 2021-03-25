@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Eawalt_App_UI.View.HomeDasboardView"
+             Background="#f7f7f7">
+    
+    <ContentPage.Content>
+        <Grid RowDefinitions="*">
+            <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
+                <!-- Main Layout-->
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="10,10,0,0">
+                    <!--Label for menu information-->
+                    <Frame  Grid.Column="0" Grid.Row="0" BackgroundColor="#f7f7f7" HorizontalOptions="Start"  CornerRadius="25" HeightRequest="5" WidthRequest="20" BorderColor="#f7f7f7" HasShadow="False" Margin="-16,0,0,0">
+                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold" FontFamily="{StaticResource FontAwesomeSolid}" Text="" TextColor="Black"/>
+                    </Frame>
+                    <!--Imager for profile user-->
+                    <Image Grid.Row="0" Grid.Column="2" HorizontalOptions="End" Source="OvalImage" Margin="0,0,10,0" HeightRequest="60" WidthRequest="60"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Dashboard" TextColor="Black" FontSize="25" FontAttributes="None" Padding="0,10,0,0"/>
+                    <Label Grid.Row="3" Grid.Column="0" Text="My Cards" TextColor="Black" FontSize="18" FontAttributes="None" Padding="0,15,0,0"/>
+                    <!-- My Cards-->
+                    <CollectionView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" 
+                                    HorizontalScrollBarVisibility="Never" 
+                                    ItemsSource="{Binding Cards}"
+                                    HeightRequest="180"
+                                    ItemsLayout="HorizontalList" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="5,0">
+                                    <Frame HasShadow="False" CornerRadius="20" BackgroundColor="{Binding ColorOfCard}" WidthRequest="280">
+                                        <Grid  RowDefinitions="Auto,Auto,Auto,Auto">
+                                            <Frame Grid.Row="0" BackgroundColor="White" HorizontalOptions="End" HeightRequest="-10" WidthRequest="10"/>
+                                            <Label Grid.Row="0" Text="{Binding NameOfCard}"  FontSize="20" TextColor="White" VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="2" Text="{Binding CardNumber}"  FontSize="20" TextColor="White"/>
+                                            <StackLayout Grid.Row="3" VerticalOptions="End" HorizontalOptions="Start" Spacing="0">
+                                                <Label  Text="Name"  FontSize="15" TextColor="White"/>
+                                                <Label  Text="{Binding Name}"  FontSize="15" TextColor="White" Padding="0,-5,0,0"/>
+                                            </StackLayout>
+
+                                            <StackLayout Grid.Row="3" VerticalOptions="End" HorizontalOptions="End" Spacing="0">
+                                                <Label  Text="Date"  FontSize="15" TextColor="White"/>
+                                                <Label  Text="{Binding DateExpi}"  FontSize="15" TextColor="White" Padding="0,-5,0,0"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <!--Other information-->
+                    <Label  Grid.Row="6" Grid.Column="0" Text="Expenses History" TextColor="Black" FontSize="15" FontAttributes="None"/>
+                    <Label  Grid.Row="6" Grid.Column="2" Text="View All" TextColor="Black" FontSize="15" FontAttributes="None" HorizontalOptions="End" Margin="0,0,5,0"/>
+                    <!--Movment Transfer List-->
+                    <CollectionView Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"
+                                    HorizontalScrollBarVisibility="Never"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="{OnPlatform Android='350', iOS='500'}"
+                                    ItemsSource="{Binding Payments}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="Auto" Padding="10,0">
+                                    <Frame Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"  CornerRadius="20" Margin="5">
+                                        <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,*">
+                                            <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Source="{Binding Image}" HeightRequest="50" WidthRequest="50"/>
+                                            <StackLayout Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="10,0,0,0" Spacing="0">
+                                                <Label Text="{Binding Destin}"  FontSize="15" TextColor="Black" />
+                                                <Label Text="{Binding DateOfTransfer}" FontSize="12" TextColor="Black" />
+                                            </StackLayout>
+                                            <Label Grid.Row="1" Grid.Column="3" Text="{Binding Amount}" TextColor="Black" FontSize="15" HorizontalOptions="End" VerticalTextAlignment="Center"/>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <!--Menu Options Button-->
+                    <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="60" Margin="15,5,15,10">
+                        <Frame BackgroundColor="White" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="Image001"/>
+                                <Label Text="Analytics" FontSize="15" TextColor="Black" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame BackgroundColor="#1b1b2f" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BackgroundColor="White" WidthRequest="-20"/>
+                                <Label Text="Tranfer Money" FontSize="15" TextColor="White" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

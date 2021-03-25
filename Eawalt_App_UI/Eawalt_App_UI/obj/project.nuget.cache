@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZzuEmtLum1CNX2MX5C9DqG7Hm6w8zYBfq7IwPLM4LlOeGhluZWcg2b/qaeLMQoDyTnHd+51yZxs4N5nb9bKAVg==",
+  "success": true,
+  "projectFilePath": "C:\\Projectos Visual Studio 2019\\Eawalt_App_UI\\Eawalt_App_UI\\Eawalt_App_UI\\Eawalt_App_UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gerson Mayamba\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Gerson Mayamba\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Gerson Mayamba\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}
